@@ -41,7 +41,7 @@ HF_TOKEN = os.getenv("HF_TOKEN")
 
 # 🤖 AI generator (FIXED + STRONG DEBUG)
 def generate_ai_message():
-    url = "https://api-inference.huggingface.co/models/google/flan-t5-small"
+    url = "https://router.huggingface.co/hf-inference/models/google/flan-t5-small"
 
     headers = {
         "Authorization": f"Bearer {HF_TOKEN}"
