@@ -40,6 +40,10 @@ def generate_ai_message():
         response = requests.post(url, headers=headers, json=payload)
         result = response.json()
 
+        print("🤖 Generating AI message...")
+        print("STATUS:", response.status_code)
+        print("RESPONSE:", response.text)
+
         if isinstance(result, list):
             return result[0]["generated_text"]
         return "⚡ Stay consistent. Keep pushing forward!"
