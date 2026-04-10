@@ -44,7 +44,8 @@ def generate_ai_message():
     url = "https://router.huggingface.co/hf-inference/models/google/flan-t5-small"
 
     headers = {
-        "Authorization": f"Bearer {HF_TOKEN}"
+        "Authorization": f"Bearer {HF_TOKEN}",
+        "Content-Type": "application/json"
     }
 
     payload = {
