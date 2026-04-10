@@ -36,12 +36,12 @@ def keep_alive():
 
 # 🔐 Environment variables
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
+CHAT_ID = os.getenv("CHAT_ID") 
 HF_TOKEN = os.getenv("HF_TOKEN")
 
 # 🤖 AI generator (FIXED + STRONG DEBUG)
 def generate_ai_message():
-    url = "https://router.huggingface.co/hf-inference/models/google/flan-t5-small"
+    url = "https://openrouter.ai/api/v1/chat/completions"
 
     headers = {
         "Authorization": f"Bearer {HF_TOKEN}",
@@ -49,33 +49,27 @@ def generate_ai_message():
     }
 
     payload = {
-        "inputs": "Give a short, powerful motivational message (max 2 lines).",
-        "parameters": {
-            "max_new_tokens": 50
-        }
+        "model": "meta-llama/llama-3-8b-instruct",  # free model
+        "messages": [
+            {"role": "user", "content": "Give a short motivational message (1-2 lines)."}
+        ]
     }
 
     try:
-        print("🤖 Calling Hugging Face...")
+        print("🤖 Calling OpenRouter AI...")
 
         response = requests.post(url, headers=headers, json=payload)
 
         print("STATUS:", response.status_code)
-        print("RAW RESPONSE:", response.text)
+        print("RAW:", response.text)
 
         data = response.json()
 
-        # ✅ Correct parsing
-        if isinstance(data, list) and "generated_text" in data[0]:
-            return data[0]["generated_text"]
-
-        else:
-            print("⚠️ Unexpected response format:", data)
-            return "⚠️ AI format error (check logs)"
+        return data["choices"][0]["message"]["content"]
 
     except Exception as e:
         print("❌ AI ERROR:", str(e))
-        return "❌ AI failed (check Railway logs)"
+        return "⚡ Stay consistent. Keep pushing forward!"
 
 # 📩 Telegram sender
 def send_message(msg):
