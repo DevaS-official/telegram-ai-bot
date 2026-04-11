@@ -51,7 +51,8 @@ def generate_ai_message():
     payload = {
         "model": "meta-llama/llama-3-8b-instruct",  # free model
         "messages": [
-            {"role": "user", "content": "Give a short motivational message (1-2 lines)."}
+            #{"role": "user", "content": "Give a short motivational message (1-2 lines)."}
+            {"role": "user", "content": "Give a short funny Tanglish message like Zomato notifications. Use Tamil + English mix, casual tone, 1-2 lines, include humor about food, laziness, or daily life. Make it Gen Z style."}
         ]
     }
 
