@@ -19,6 +19,7 @@ def ai_test():
     print("🧪 AI TEST TRIGGERED")
 
     msg = generate_ai_message()
+    send_message(msg)
 
     return f"""
     <h2>AI RESULT</h2>
@@ -52,7 +53,7 @@ def generate_ai_message():
         "model": "meta-llama/llama-3-8b-instruct",  # free model
         "messages": [
             #{"role": "user", "content": "Give a short motivational message (1-2 lines)."}
-            {"role": "user", "content": "Give a short funny Tanglish message like Zomato notifications. Use Tamil + English mix, casual tone, 1-2 lines, include humor about food, laziness, or daily life. Make it Gen Z style."}
+            {"role": "user", "content": "Give a short funny Tanglish message like Zomato notifications. Use Tamil + English mix, casual tone, only 1 line because i want to see it on notification, include humor about food, laziness, or daily life like a friend vibe. Make it Gen Z style."}
         ]
     }
 
