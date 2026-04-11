@@ -53,7 +53,7 @@ def generate_ai_message():
         "model": "meta-llama/llama-3-8b-instruct",  # free model
         "messages": [
             #{"role": "user", "content": "Give a short motivational message (1-2 lines)."}
-            {"role": "user", "content": "Give a short funny Tanglish message like Zomato notifications. Use Tamil + English mix, casual tone, only 1 line because i want to see it on notification, include humor about food, laziness, or daily life like a friend vibe. Make it Gen Z style."}
+            {"role": "user", "content": "Give a short funny Tanglish message like Zomato notifications. Use Tamil + English mix, casual tone, only 1 line because i want to see it on notification, include humor about food, laziness, or daily life like a friend vibe only one msg is need not too many messages i want to see only 1 complete sentence dont give too many options. Make it Gen Z style."}
         ]
     }
 
