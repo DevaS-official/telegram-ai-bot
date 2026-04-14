@@ -145,6 +145,7 @@ while True:
         msg = generate_ai_message()
 
         #send_message("🤖 AI says:\n\n" + msg)
+        send_message(msg);
 
         messages_sent_today += 1
         print(f"✅ Messages sent today: {messages_sent_today}")
